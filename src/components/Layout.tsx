@@ -2,7 +2,7 @@ import Navbar from "./Navbar";
 
 const Layout = ({ children }: { children: React.ReactNode }) => {
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col w-screen">
       <Navbar />
       {children}
     </div>

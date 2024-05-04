@@ -8,6 +8,8 @@ import {
 import PatternOne from "../assets/pattern_1.jpg";
 import PatternTwo from "../assets/pattern_2.jpg";
 import PatternThree from "../assets/pattern_3.jpg";
+import PatternFour from "../assets/pattern_4.jpg";
+// import PatternFive from "../assets/pattern_5.jpg";
 
 interface MenuItem {
   name: string;
@@ -17,6 +19,12 @@ interface MenuItem {
 }
 
 const menuItems: MenuItem[] = [
+  {
+    name: "Matrix Gambar",
+    description: "Melihat matrix dari gambar",
+    image: PatternFour,
+    link: "/matrix-image",
+  },
   {
     name: "Konversi warna",
     description: "Konversi gambar ke warna merah, hijau, biru, atau abu-abu",
@@ -35,11 +43,20 @@ const menuItems: MenuItem[] = [
     image: PatternThree,
     link: "/sharpen-image",
   },
+  // {
+  //   name: "Transformasi fourier",
+  //   description: "Transformasi fourier pada gambar",
+  //   image: PatternFive,
+  //   link: "/fourier-transform",
+  // },
 ];
 
 function Menu({ name, image, description, link }: MenuItem) {
   return (
-    <Card sx={{ width: 345, bgcolor: "#535C91", color: "white" }}>
+    <Card
+      sx={{ width: 345, bgcolor: "#535C91", color: "white" }}
+      className="my-8"
+    >
       <CardActionArea href={link}>
         <CardMedia
           component="img"
@@ -48,7 +65,7 @@ function Menu({ name, image, description, link }: MenuItem) {
           alt="pattern"
           className="h-40 w-full object-cover"
         />
-        <CardContent>
+        <CardContent className="h-28">
           <Typography gutterBottom variant="h6" component="div">
             {name}
           </Typography>
@@ -63,7 +80,7 @@ function Menu({ name, image, description, link }: MenuItem) {
 
 function HomePage() {
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col w-screen">
       <div className="flex flex-col">
         <div className="flex flex-col space-y-4 mt-8 justify-center items-center">
           <p className="text-4xl font-bold text-gray-200 max-w-3xl text-center">
@@ -77,8 +94,13 @@ function HomePage() {
           </p>
         </div>
       </div>
+      {/* <div className="flex flex-row space-x-16 mt-24 mx-auto flex-wrap"> */}
 
-      <div className="flex flex-row space-x-16 mt-24 mx-auto">
+      <div
+        className="flex flex-wrap justify-center items-center 
+      space-x-8 mt-24 max-w-8xl mx-auto w-full"
+      >
+        {/* <div className="grid grid-cols-1 md:grid-cols-3 gap-4 p-4 mx-auto justify-center items-center"> */}
         {menuItems.map((item) => (
           <Menu key={item.name} {...item} />
         ))}

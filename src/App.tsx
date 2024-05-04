@@ -4,6 +4,9 @@ import Layout from "./components/Layout";
 import ConvertColor from "./pages/ConvertColor";
 import { ThemeProvider } from "@mui/material";
 import theme from "./theme";
+import CompressImage from "./pages/CompressImage";
+import SharpenImage from "./pages/SharpenImage";
+import MatrixImage from "./pages/MatrixImage";
 
 const router = createBrowserRouter([
   {
@@ -19,6 +22,30 @@ const router = createBrowserRouter([
     element: (
       <Layout>
         <ConvertColor />
+      </Layout>
+    ),
+  },
+  {
+    path: "/compress-image",
+    element: (
+      <Layout>
+        <CompressImage />
+      </Layout>
+    ),
+  },
+  {
+    path: "/sharpen-image",
+    element: (
+      <Layout>
+        <SharpenImage />
+      </Layout>
+    ),
+  },
+  {
+    path: "/matrix-image",
+    element: (
+      <Layout>
+        <MatrixImage />
       </Layout>
     ),
   },
