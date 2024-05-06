@@ -6,7 +6,7 @@ import {
   ReactCompareSliderImage,
 } from "react-compare-slider";
 
-import { sharpenImage } from "../utils/hooks";
+import { preloadImageAsFile, sharpenImage } from "../utils/hooks";
 import Loading from "../components/Loading";
 
 const SharpenImage = () => {
@@ -15,7 +15,6 @@ const SharpenImage = () => {
   const [uploadedImage, setUploadedImage] = useState<File | null>(null);
   const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<string>("");
-  const [isSubmitted, setIsSubmitted] = useState<boolean>(false);
 
   const onUpload = (file: File) => {
     const reader = new FileReader();
@@ -30,7 +29,7 @@ const SharpenImage = () => {
   const onSubmit = async () => {
     setLoading(true);
     setError("");
-    setIsSubmitted(false);
+
     try {
       const result = await sharpenImage(uploadedImage as File);
       setConvertedImage(URL.createObjectURL(result));
@@ -42,7 +41,7 @@ const SharpenImage = () => {
           setUploadedImageSrc(e.target?.result as string);
         };
       }
-      setIsSubmitted(true);
+
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
     } catch (error: any) {
       setError(error.message);
@@ -55,7 +54,7 @@ const SharpenImage = () => {
     // save image to local storage
     const a = document.createElement("a");
     a.href = convertedImage;
-    a.download = "converted-image.png";
+    a.download = "sharpened-image.png";
     a.click();
   };
 
@@ -63,6 +62,11 @@ const SharpenImage = () => {
     // set default image
     setUploadedImageSrc("sharpen_original.jpg");
     setConvertedImage("sharpen_out.png");
+
+    const preload = async () => {
+      setUploadedImage(await preloadImageAsFile("sharpen_original.jpg"));
+    };
+    preload();
   }, []);
   return (
     <div className="flex flex-col max-w-4xl mx-auto w-full">
@@ -102,7 +106,7 @@ const SharpenImage = () => {
           />
         )}
       </div>
-      {isSubmitted && (
+      {!loading && (
         <Button
           variant="contained"
           size="small"

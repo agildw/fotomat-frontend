@@ -83,7 +83,7 @@ const CompressImage = () => {
         Kompresi gambar dengan opsi kualitas gambar yang diinginkan
       </p>
       <div className="flex flex-col space-y-4 max-w-xl mt-8">
-        <div className="flex flex-row space-x-4">
+        <div className="flex flex-col sm:flex-row sm:space-x-4 space-y-4 sm:space-y-0">
           <UploadButton onChange={onUpload} />
           <div className="flex flex-row items-center space-x-2 w-full">
             <Slider
@@ -132,20 +132,24 @@ const CompressImage = () => {
         )}
       </div>
 
-      <Button
-        variant="contained"
-        size="small"
-        color="primary"
-        sx={{ color: "white" }}
-        onClick={handleDownload}
-      >
-        Download
-      </Button>
+      {!loading && (
+        <>
+          <Button
+            variant="contained"
+            size="small"
+            color="primary"
+            sx={{ color: "white" }}
+            onClick={handleDownload}
+          >
+            Download
+          </Button>
 
-      <p className="text-gray-400 mt-4">
-        Original size: {(uploadedImage?.size || 0) / 1000} KB, Converted size:{" "}
-        {(convertedImageFile?.size || 0) / 1000} KB
-      </p>
+          <p className="text-gray-400 mt-4">
+            Original size: {(uploadedImage?.size || 0) / 1000} KB, Converted
+            size: {(convertedImageFile?.size || 0) / 1000} KB
+          </p>
+        </>
+      )}
     </div>
   );
 };

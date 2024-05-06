@@ -26,7 +26,7 @@ export default function UploadButton({
       variant="contained"
       tabIndex={-1}
       startIcon={<CloudUploadIcon />}
-      className="w-72"
+      className="w-full sm:w-72"
       // className="w-full"
       size="small"
     >

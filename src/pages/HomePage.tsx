@@ -80,11 +80,11 @@ function Menu({ name, image, description, link }: MenuItem) {
 
 function HomePage() {
   return (
-    <div className="flex flex-col w-screen">
+    <div className="flex flex-col">
       <div className="flex flex-col">
         <div className="flex flex-col space-y-4 mt-8 justify-center items-center">
           <p className="text-4xl font-bold text-gray-200 max-w-3xl text-center">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum
+            Junkyard Canvas Kit
           </p>
           <p className="text-xl font-bold text-gray-600 max-w-3xl text-center">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis
@@ -96,11 +96,11 @@ function HomePage() {
       </div>
       {/* <div className="flex flex-row space-x-16 mt-24 mx-auto flex-wrap"> */}
 
-      <div
+      {/* <div
         className="flex flex-wrap justify-center items-center 
-      space-x-8 mt-24 max-w-8xl mx-auto w-full"
-      >
-        {/* <div className="grid grid-cols-1 md:grid-cols-3 gap-4 p-4 mx-auto justify-center items-center"> */}
+      mt-24 max-w-8xl mx-auto w-full md:space-x-8"
+      > */}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4 md:gap-8 mx-auto justify-center items-center mt-24">
         {menuItems.map((item) => (
           <Menu key={item.name} {...item} />
         ))}

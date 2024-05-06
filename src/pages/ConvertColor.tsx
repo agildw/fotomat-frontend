@@ -142,16 +142,17 @@ const ConvertColor = () => {
             }
           />
         )}
-        <Button
-          variant="contained"
-          size="small"
-          color="primary"
-          className="w-96"
-          sx={{ color: "white" }}
-          onClick={handleDownload}
-        >
-          Download
-        </Button>
+        {!loading && (
+          <Button
+            variant="contained"
+            size="small"
+            color="primary"
+            sx={{ color: "white" }}
+            onClick={handleDownload}
+          >
+            Download
+          </Button>
+        )}
       </div>
     </div>
   );

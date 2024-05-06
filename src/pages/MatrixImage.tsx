@@ -39,7 +39,7 @@ const MatrixImage = () => {
 
   useEffect(() => {
     // set default image
-    setUploadedImageSrc("/convert_original.jpeg");
+    setUploadedImageSrc("/matrix_original.jpg");
     // set default matrix
     setMatrix(
       "[[[241 175 156]\n  [241 175 156]\n  [241 175 156]\n  ...\n  [241 175 156]\n  [241 175 156]\n  [241 175 156]]\n\n [[241 175 156]\n  [241 175 156]\n  [241 175 156]\n  ...\n  [241 175 156]\n  [241 175 156]\n  [241 175 156]]\n\n [[241 175 156]\n  [241 175 156]\n  [241 175 156]\n  ...\n  [241 175 156]\n  [241 175 156]\n  [241 175 156]]\n\n ...\n\n [[230 173 158]\n  [233 186 172]\n  [124  97  87]\n  ...\n  [ 70  54  47]\n  [214 175 166]\n  [224 175 165]]\n\n [[229 172 157]\n  [233 186 172]\n  [124  97  87]\n  ...\n  [ 70  54  47]\n  [214 175 166]\n  [224 175 165]]\n\n [[229 172 157]\n  [232 185 171]\n  [124  97  87]\n  ...\n  [ 70  54  47]\n  [214 175 166]\n  [224 175 165]]]"
@@ -71,7 +71,7 @@ const MatrixImage = () => {
       </div>
       {error && <p className="text-red-500 mt-4">{error}</p>}
       {loading && <p className="text-gray-300 mt-4">Loading...</p>}
-      <div className="mt-8 object-cover w-[30rem] h-auto">
+      <div className="mt-8 w-full h-96 object-cover">
         <img
           src={uploadedImageSrc}
           alt="original"
