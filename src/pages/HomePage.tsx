@@ -9,7 +9,7 @@ import PatternOne from "../assets/pattern_1.jpg";
 import PatternTwo from "../assets/pattern_2.jpg";
 import PatternThree from "../assets/pattern_3.jpg";
 import PatternFour from "../assets/pattern_4.jpg";
-// import PatternFive from "../assets/pattern_5.jpg";
+import PatternFive from "../assets/pattern_5.jpg";
 
 interface MenuItem {
   name: string;
@@ -43,12 +43,12 @@ const menuItems: MenuItem[] = [
     image: PatternThree,
     link: "/sharpen-image",
   },
-  // {
-  //   name: "Transformasi fourier",
-  //   description: "Transformasi fourier pada gambar",
-  //   image: PatternFive,
-  //   link: "/fourier-transform",
-  // },
+  {
+    name: "Transformasi fourier",
+    description: "Transformasi fourier pada gambar",
+    image: PatternFive,
+    link: "/fourier-transform",
+  },
 ];
 
 function Menu({ name, image, description, link }: MenuItem) {
@@ -98,9 +98,9 @@ function HomePage() {
 
       {/* <div
         className="flex flex-wrap justify-center items-center 
-      mt-24 max-w-8xl mx-auto w-full md:space-x-8"
+      mt-24 max-w-8xl mx-auto w-full md:space-x-8 max-w-6xl"
       > */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4 md:gap-8 mx-auto justify-center items-center mt-24">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 md:gap-8 mx-auto justify-center items-center mt-24">
         {menuItems.map((item) => (
           <Menu key={item.name} {...item} />
         ))}

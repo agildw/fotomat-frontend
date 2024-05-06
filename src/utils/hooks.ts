@@ -53,6 +53,23 @@ export const sharpenImage = async (image: File) => {
   return response.data as Blob;
 };
 
+export const fourierTransformation = async (image: File) => {
+  const data = new FormData();
+  // data.append("file", image);
+  data.append("file", new Blob([image], { type: "image/jpeg" }));
+
+  const response = await httpClient.post(`/fourier`, data, {
+    // maxBodyLength: Infinity,
+    responseType: "blob",
+    headers: {
+      "Content-Type": "multipart/form-data",
+    },
+  });
+
+  //   content type response is image/png
+  return response.data as Blob;
+};
+
 export const getImageMatrix = async (image: File) => {
   const data = new FormData();
   data.append("file", image);

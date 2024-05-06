@@ -7,6 +7,7 @@ import theme from "./theme";
 import CompressImage from "./pages/CompressImage";
 import SharpenImage from "./pages/SharpenImage";
 import MatrixImage from "./pages/MatrixImage";
+import FourierTransformation from "./pages/FourierTransformation";
 
 const router = createBrowserRouter([
   {
@@ -46,6 +47,14 @@ const router = createBrowserRouter([
     element: (
       <Layout>
         <MatrixImage />
+      </Layout>
+    ),
+  },
+  {
+    path: "/fourier-transform",
+    element: (
+      <Layout>
+        <FourierTransformation />
       </Layout>
     ),
   },
