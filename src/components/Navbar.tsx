@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 const Navbar = () => {
   const navigate = useNavigate();
   return (
-    <div className="flex flex-row text-white w-screen p-6 mb-4 lg:mb-16">
+    <div className="flex flex-row text-white w-screen p-6 mb-4">
       <div
         className="flex flex-row justify-center items-center space-x-2 hover:cursor-pointer"
         onClick={() => navigate("/")}
