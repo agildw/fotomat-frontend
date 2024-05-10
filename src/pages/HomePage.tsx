@@ -21,30 +21,30 @@ interface MenuItem {
 const menuItems: MenuItem[] = [
   {
     name: "Matrix Gambar",
-    description: "Melihat matrix dari gambar",
+    description: "Melihat matriks dari gambar yang diunggah",
     image: PatternFour,
     link: "/matrix-image",
   },
   {
-    name: "Konversi warna",
+    name: "Konversi Warna",
     description: "Konversi gambar ke warna merah, hijau, biru, atau abu-abu",
     image: PatternOne,
     link: "/convert-color",
   },
   {
-    name: "Kompresi gambar",
+    name: "Kompresi Gambar",
     description: "Kompressi gambar dengan opsi kualitas",
     image: PatternTwo,
     link: "/compress-image",
   },
   {
-    name: "Pertajam gambar",
-    description: "Pertajam gambar dengan opsi intensitas",
+    name: "Pertajam Gambar",
+    description: "Pertajam gambar dengan filter sharpening",
     image: PatternThree,
     link: "/sharpen-image",
   },
   {
-    name: "Transformasi fourier",
+    name: "Transformasi Fourier",
     description: "Transformasi fourier pada gambar",
     image: PatternFive,
     link: "/fourier-transform",
@@ -82,25 +82,13 @@ function HomePage() {
   return (
     <div className="flex flex-col">
       <div className="flex flex-col">
-        <div className="flex flex-col space-y-4 mt-8 justify-center items-center">
+        <div className="flex flex-col space-y-4 justify-center items-center">
           <p className="text-4xl font-bold text-gray-200 max-w-3xl text-center">
-            Junkyard Canvas Kit
-          </p>
-          <p className="text-xl font-bold text-gray-600 max-w-3xl text-center">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis
-            eveniet asperiores eius dolore repellat iste nihil ex. Iure nam
-            reprehenderit recusandae quasi laboriosam! Provident dolorem cum
-            beatae, possimus ad ea.
+            Aplikasi untuk memproses gambar dengan berbagai teknik
           </p>
         </div>
       </div>
-      {/* <div className="flex flex-row space-x-16 mt-24 mx-auto flex-wrap"> */}
-
-      {/* <div
-        className="flex flex-wrap justify-center items-center 
-      mt-24 max-w-8xl mx-auto w-full md:space-x-8 max-w-6xl"
-      > */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 md:gap-8 mx-auto justify-center items-center mt-24">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 md:gap-8 mx-auto justify-center items-center mt-12 lg:mt-16">
         {menuItems.map((item) => (
           <Menu key={item.name} {...item} />
         ))}
